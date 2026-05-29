@@ -22,7 +22,7 @@ df = cargar_datos()
 # 1. Sidebar
 
 st.sidebar.title("filtros base para Facu")
-st.sidebar.markdown("Modifica el campo country para ver la operacion por pais")
+st.sidebar.markdown("Modifica el campo pais para ver la operacion por pais")
 
 
 # 2. Filtros (st.slider) de Country
@@ -30,7 +30,7 @@ st.sidebar.markdown("Modifica el campo country para ver la operacion por pais")
 min_Importe = float(df['Importe'].min())
 max_Importe = float(df['Importe'].max())
 
-# Creamos el slider
+# slider
 rango_Importe = st.sidebar.slider(
     label="Selecciona el rango de COMISION:",
     min_value=min_Importe,
@@ -66,7 +66,7 @@ df_filtrado = df[
 # 3. RESUMEN
 
 st.title("FASE 2")
-st.markdown("### Resumen Descriptivo Dinámico")
+st.markdown("### Resumen")
 st.write(f"Mostrando *{len(df_filtrado)}* de *{len(df)}* registros totales.")
 
 if not df_filtrado.empty:
@@ -112,8 +112,7 @@ if not df_filtrado.empty:
             c2.metric("Rango (Máx - Mín)", f"${rango_valores:.2f}")
             c3.markdown("*Cuartiles:*")
             c3.markdown(f"* *25% (Q1):* ${q25:.2f}\n* *50% (Q2):* ${mediana:.2f}\n* *75% (Q3):* ${q75:.2f}")
-        else:
-            st.warning("La columna 'Impuestos' no se encuentra en el archivo CSV.")
+
 
     with tab3:
         st.subheader(" Análisis por País")
@@ -147,7 +146,7 @@ if not df_filtrado.empty:
     )
     st.plotly_chart(fig1, use_container_width=True)
 
-    # Gráfico 2: Estado por Adquirente afectando la Comisión
+    # Gráfico 2: Estado por Adquirente x la Comisión
     st.subheader("Estado de Transacción (status) y Impuestos por Adquirente (acquirer)")
     df_acq_status = df_filtrado.groupby(["acquirer", "status"]).agg(
         Total_Impuestos=("Impuestos", "sum"),

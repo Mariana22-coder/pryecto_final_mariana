@@ -52,7 +52,7 @@ min_val = float(df["Importe"].min())
 max_val = float(df["Importe"].max())
 
 rango_seleccionado = st.sidebar.slider(
-    f"Filtrar por Rango de {"COMISION"}:",
+    f"Filtrar por Rango de {"Importe"}:",
     min_value=min_val,
     max_value=max_val,
     value=(min_val, max_val)

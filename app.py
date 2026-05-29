@@ -128,7 +128,7 @@ if not df_filtrado.empty:
 
     # 4. GRÁFICOS
     st.markdown("---")
-    st.title("VISTA GRAFICOS")
+    st.markdown("<h1 style='color: #FF4B4B; font-weight: bold;'>VISTA GRAFICOS</h1>", unsafe_allow_html=True)
 
     # Gráfico 1: Relación entre Importe y Comisión por País
     st.subheader("Relación Importe vs Impuestos por País (country)")

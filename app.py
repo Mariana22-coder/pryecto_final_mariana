@@ -65,7 +65,8 @@ df_filtrado = df[
 
 # 3. RESUMEN
 
-st.title("FASE 2")
+st.markdown("<h1 style='color: #FF4B4B; font-weight: bold;'>FASE 2 ENTREGA PROYECTO</h1>", unsafe_allow_html=True)
+
 st.markdown("### Resumen")
 st.write(f"Mostrando *{len(df_filtrado)}* de *{len(df)}* registros totales.")
 

@@ -1,53 +1,37 @@
 import pandas as pd
 
+# Cargar la base de la facultad
 df = pd.read_csv("../data/raw/p4ds-base-para-facultad.csv")
+print(f"Total original: {len(df)}")
 
-print(f"Registros de entregas originales: {len(df)}")
-
-df_sin_duplicados = df.drop_duplicates()
-
-df_limpio = df_sin_duplicados.dropna()
-df_limpio = df_sin_duplicados.dropna()
-print(f"Registros de entregas limpios: {len(df_limpio)}")
-
-ruta_guardado = "../data/processed/entregas_limpio.csv"
-df_limpio.to_csv(ruta_guardado, index=False)
-
-import pandas as pd
-
-# 1. Cargamos el nuevo DataFrame de entregas
-df = pd.read_csv("../data/raw/p4ds-base-para-facultad.csv")
-
-# Limpiamos espacios ocultos en los nombres de las columnas si los hay
+# Limpieza rápida de columnas y duplicados
 df.columns = df.columns.str.strip()
+df_limpio = df.drop_duplicates().dropna()
+print(f"Total limpio: {len(df_limpio)}")
 
-print("==================================================")
-print("   EDA: DATASET DE LA PLATAFORMA DE ENTREGAS      ")
-print("==================================================")
+# Guardar
+df_limpio.to_csv("../data/processed/entregas_limpio.csv", index=False)
 
+# --- REVISIÓN RÁPIDA (EDA) ---
+print("--- Info general ---")
+print(f"Dimensiones: {df.shape}")
 
-print("\n--- 1. Volumen de Datos (Filas, Columnas) ---")
-print(df.shape)
-
-print("\n--- 2. Registro de las primeras 3 filas ---")
+print("\n--- Primeras filas ---")
 print(df.head(3))
 
-print("\n--- 3. Formato y tipo de dato de cada columna ---")
+print("\n--- Tipos y nulos ---")
 print(df.dtypes)
-
-print("\n--- 4. Casilleros vacíos detectados por columna ---")
+print("\nNulos por columna:")
 print(df.isnull().sum())
 
-print("\n--- 5. Resumen estadístico de los identificadores ---")
+print("\n--- Estadísticas ---")
 print(df.describe())
 
-print("\n--- 6. Conteo de tipos de movimientos registrados ---")
-if 'payment_type' in df.columns:
-    print(df['payment_type'].value_counts())
+# payment_type por si cambia el nombre
+if "payment_type" in df.columns:
+    print("\n--- Tipos de pago ---")
+    print(df["payment_type"].value_counts())
 else:
-    print("La columna 'payment_type' no fue encontrada.")
+    print("\nOjo: No existe la columna 'payment_type'")
 
-
-print("Fase 1 oka")
-
-
+print("\nListo el script.")

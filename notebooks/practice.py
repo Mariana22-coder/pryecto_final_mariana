@@ -30,8 +30,6 @@ print(df.describe())
 # payment_type por si cambia el nombre
 if "payment_type" in df.columns:
     print("\n--- Tipos de pago ---")
+    print("\n--- Tipos de pago ---")
     print(df["payment_type"].value_counts())
-else:
-    print("\nOjo: No existe la columna 'payment_type'")
 
-print("\nListo el script.")

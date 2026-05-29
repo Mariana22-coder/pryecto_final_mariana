@@ -167,7 +167,7 @@ if not df_filtrado.empty:
     st.plotly_chart(fig2, use_container_width=True)
 
     st.subheader("que tal profe?  🚀  ")
-
+    st.subheader(":green[que tal profe?] 🚀")
     if st.button ("ok"):
         st.write ("gracias profe")
     if st.button ("no okei"):

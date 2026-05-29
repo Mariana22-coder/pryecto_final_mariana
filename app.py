@@ -170,5 +170,5 @@ if not df_filtrado.empty:
     if st.button ("ok"):
         st.write ("gracias profe")
     if st.button ("no okei"):
-        st.write ("--")
+        st.write ("aahh mejoraar")
 

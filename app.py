@@ -21,7 +21,7 @@ df = cargar_datos()
 
 # 1. Sidebar
 
-st.sidebar.title("filtros base para Facu")
+st.sidebar.markdown("<h2 style='color: #2E86C1; font-weight: bold;'>Filtros</h2>", unsafe_allow_html=True)
 st.sidebar.markdown("Modifica el campo pais para ver la operacion por pais")
 
 
@@ -65,7 +65,7 @@ df_filtrado = df[
 
 # 3. RESUMEN
 
-st.markdown("<h1 style='color: #00FF00; font-weight: bold;'>FASE 2 ENTREGA PROYECTO</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='color: #FF4B4B; font-weight: bold;'>FASE 2 ENTREGA PROYECTO</h1>", unsafe_allow_html=True)
 
 st.markdown("### Resumen")
 st.write(f"Mostrando *{len(df_filtrado)}* de *{len(df)}* registros totales.")
@@ -166,7 +166,7 @@ if not df_filtrado.empty:
     )
     st.plotly_chart(fig2, use_container_width=True)
 
-    st.subheader("que tal profe?")
+    st.subheader("que tal profe?  🚀  ")
 
     if st.button ("ok"):
         st.write ("gracias profe")

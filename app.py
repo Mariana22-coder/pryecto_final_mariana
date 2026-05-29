@@ -43,7 +43,7 @@ df_filtrado = df[(df['Importe'] >= rango_Importe[0]) & (df['Importe'] <= rango_I
 # ==========================================================
 # VER ACA PORQUE ME QUEDA RARO
 # ==========================================================
-st.sidebar.markdown("# Panel de Control ")
+st.sidebar.markdown("<h2 style='color: #2E86C1; font-weight: bold;'>Panel de Control</h2>", unsafe_allow_html=True)
 st.sidebar.markdown("Modifica el rango de importes para actualizar los análisis y gráficos.")
 
 # Filtro de rango basado en 'importe'
